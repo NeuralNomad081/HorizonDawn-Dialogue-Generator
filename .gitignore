@@ -1,0 +1,100 @@
+# Python environment
+venv/
+env/
+ENV/
+game/
+.env
+.venv
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Model directories and checkpoints
+models/*/checkpoint-*/
+models/*/.ipynb_checkpoints/
+models/small_model_test/
+models/dialogue_generator_full/
+.ipynb_checkpoints/
+
+# Logs and data
+logs/
+*.log
+*.csv
+*.tsv
+*.pkl
+*.pt
+*.bin
+*.h5
+*.lm
+*.index
+*.msgpack
+*.pth
+*.tar.gz
+*.zip
+*.ckpt
+data/processed/
+!data/raw/*.json
+
+# Jupyter
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+profile_default/
+ipython_config.py
+
+# MacOS specific
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# IDE specific
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Coverage and testing
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Temporary files
+tmp/
+temp/
+
+# Torch serialization
+*.sagemaker-uploading
+*.sagemaker-uploaded

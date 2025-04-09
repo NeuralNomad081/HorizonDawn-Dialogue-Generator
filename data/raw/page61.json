@@ -1,0 +1,43 @@
+{
+    "text": [
+        {
+            "ACTION": "DATAPOINT: First Meeting"
+        },
+        {
+            "Sylens": "I've traveled far to find you. I heard your transmission... it was you, wasn't it?"
+        },
+        {
+            "Hades": "Entity is not known."
+        },
+        {
+            "Sylens": "I am called Sylens. And you are... ? I don't think you'd have called out... if there wasn't something you wanted. You called, I responded. Will you tell me your name?"
+        },
+        {
+            "Hades": "HADES."
+        },
+        {
+            "Sylens": "You are a creation of the ancients? A war machine?"
+        },
+        {
+            "Hades": "Define timeline."
+        },
+        {
+            "Sylens": "Time... ? Ah. It is the 13th king of the Carja Sundom's reign--"
+        },
+        {
+            "Hades": "Define Carja."
+        },
+        {
+            "Sylens": "We're getting ahead of ourselves. Were you created by the ancients? I wonder how long you waited here, buried, until I chanced upon you... How long you'd have to wait for another. You're obviously very powerful. But you're not going to get anywhere without me."
+        },
+        {
+            "Hades": "Titan frame merely houses intellect. Define Carja."
+        },
+        {
+            "Sylens": "Now that's more like it."
+        },
+        {
+            "ACTION": "---"
+        }
+    ]
+}

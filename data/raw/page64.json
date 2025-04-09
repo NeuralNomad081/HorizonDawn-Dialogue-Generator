@@ -1,0 +1,40 @@
+{
+    "text": [
+        {
+            "ACTION": "DATAPOINT: Recording Device"
+        },
+        {
+            "Dervahl": "I think I've got it working. There. Now say something, both of you doves."
+        },
+        {
+            "Woman's Voice": "I don't know. What do you want me to say?"
+        },
+        {
+            "Dervahl": "Whatever you want. I just want to hear your voice... and keep it for later."
+        },
+        {
+            "Girl's Voice": "I'll sing, papa! La la la la la la la... "
+        },
+        {
+            "Woman's Voice": "(laughs)"
+        },
+        {
+            "Dervahl": "There. A song and a laugh. Even better than words, and now I can hear them whenever I want."
+        },
+        {
+            "Woman's Voice": "We're done then? Off to bed with you!"
+        },
+        {
+            "Girl's Voice": "Goodnight mama! Goodnight papa!"
+        },
+        {
+            "ACTION": "pause"
+        },
+        {
+            "Woman's Voice": "Is she gone? What are we going to do? The raids are getting closer and closer to Mainspring. How much longer can we hide like this?"
+        },
+        {
+            "ACTION": "---"
+        }
+    ]
+}

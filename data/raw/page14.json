@@ -1,0 +1,28 @@
+{
+    "text": [
+        {
+            "ACTION": "DATAPOINT: Comms Log: Sgt. Guliyev"
+        },
+        {
+            "Guliyev": "Say again, Lieutenant?"
+        },
+        {
+            "Murell": "It got through. Titan is through the defenses. Still on approach."
+        },
+        {
+            "ACTION": "various groans, muttered curses"
+        },
+        {
+            "Acosta": "A live one. And it's pissed."
+        },
+        {
+            "Guliyev": "We've got no mobility in here, it'll punch right through us!"
+        },
+        {
+            "Murell": "We hold the hatch at all costs. Then push back out."
+        },
+        {
+            "ACTION": "---"
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+FastAPI
+uvicorn
+transformers
+torch
+pandas
+numpy
+scikit-learn
+requests
+pytest
+jupyter
+beautifulsoup4
+html5lib
+accelerate>=0.26.0

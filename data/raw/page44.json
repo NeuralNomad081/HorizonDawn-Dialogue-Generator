@@ -1,0 +1,31 @@
+{
+    "text": [
+        {
+            "ACTION": "DATAPOINT: Interview 2: Ron Felder"
+        },
+        {
+            "Ron Felder": "... to make sure I behave this time?"
+        },
+        {
+            "Selection Counselor": "Security. For your protection. Would you like to discuss how you're feeling?"
+        },
+        {
+            "Ron Felder": "Sure, I'll tell you. Surprised. No... flabbergasted. Like my old man would say, 'flabbergasted'. That vein pumping in his forehead... I'd thought-I'd thought you people were just completely underprepared for a spaceflight project. But now I can see it's worse. Much worse. Sobeck is a total fantasist - a dangerous fantasist. This kind of blue-skying, its-Jesus! I'm sorry we wasted each other's time. I'm ready to leave now."
+        },
+        {
+            "Selection Counselor": "I'm afraid that's not possible."
+        },
+        {
+            "Ron Felder": "Everything you're talking about here isn't possible!"
+        },
+        {
+            "Selection Counselor": "I recommend you read the documents regarding your options--"
+        },
+        {
+            "Ron Felder": "I've seen enough, I'm getting out of here - what are you - you don't - get your hands off me!"
+        },
+        {
+            "ACTION": "---"
+        }
+    ]
+}
