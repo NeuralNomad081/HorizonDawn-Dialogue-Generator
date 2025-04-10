@@ -2,7 +2,12 @@ import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from peft import PeftModel  # For LoRA models
 
-def generate_dialogue(prompt, model_path="models/dialogue_generator_mistral"):
+
+def generate_dialogue(prompt, model_path="./models/dialogue_generator_gpt2"):
+    # Check for empty prompt
+    if not prompt or prompt.strip() == "":
+        return "Prompt cannot be empty."
+        
     # Load model and tokenizer
     tokenizer = AutoTokenizer.from_pretrained(model_path)
     model = AutoModelForCausalLM.from_pretrained(model_path)
@@ -24,6 +29,8 @@ def generate_dialogue(prompt, model_path="models/dialogue_generator_mistral"):
     generated_text = tokenizer.decode(outputs[0], skip_special_tokens=True)
     return generated_text
 
-# Example usage
-dialogue = generate_dialogue("Generate dialogue for scene 'Forest Encounter':")
-print(dialogue)
+
+# Example usage (only runs when script is executed directly)
+if __name__ == "__main__":
+    dialogue = generate_dialogue("Generate dialogue for scene 'Forest Encounter':")
+    print(dialogue)
