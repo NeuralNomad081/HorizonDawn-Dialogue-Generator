@@ -1,60 +1,51 @@
-# Game Content Generator
+# Game Dialogue Generator
 
-## Overview
-The Game Content Generator is a project designed to create dynamic and engaging game content using a fine-tuned language model. This project focuses on generating game dialogue for specific scenes, enhancing narrative development for game creators and writers.
+A fine-tuned language model for generating game dialogue in the style of Horizon Dawn.
 
-## Features
-- **Data Processing**: Scripts for processing various JSON dialogue formats into structured training data
-- **Model Training**: Fine-tunes GPT-2 language models on dialogue data with both lightweight and full versions
-- **CPU/MPS Compatibility**: Works on MacOS devices with proper hardware acceleration handling
-- **CLI Interface**: Simple command-line tools for generating game content
+## What This Project Does
+
+This project uses a fine-tuned GPT-2 model to generate game dialogue for different scenes and characters. It includes:
+
+1. Data processing for game dialogues
+2. Model fine-tuning on a dataset of game dialogues
+3. A FastAPI web API for serving the model
+4. A simple web interface for generating dialogue
 
 ## Project Structure
-```
-game-content-generator/
-├── data/
-│   ├── raw/           # Raw JSON dialogue files
-│   ├── processed/     # Processed CSV files for training
-│   └── process_data.py # Script to process JSON to CSV
-├── models/
-│   ├── train.py       # Full model training script
-│   ├── train_small.py # Lightweight model training script
-│   └── test_model.py  # Script to test trained models
-├── web/               # Web interface files (future development)
-└── README.md          # This file
-```
 
-## How to Run the Project
+## How to Run
 
 ### Prerequisites
-- Python 3.7 or higher
+
+- Python 3.8+
 - PyTorch
-- Transformers library
-- Datasets library
-- Pandas
+- Transformers
+- FastAPI
+- Uvicorn
 
 ### Installation
+
 1. Clone the repository:
-   ```
-   git clone <repository-url>
-   cd game-content-generator
+   ```bash
+   git clone https://github.com/yourusername/HorizonDawn-Dialogue-Generator.git
+   cd HorizonDawn-Dialogue-Generator
    ```
 
 2. Create and activate a virtual environment:
-   ```
+   ```bash
    python -m venv venv
    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
    ```
 
 3. Install the required packages:
-   ```
+   ```bash
    pip install -r requirements.txt
    ```
 
 ### Processing Data
 1. Place your JSON dialogue files in the `data/raw/` directory
 2. Run the processing script:
-   ```
+   ```bash
    cd data
    python process_data.py
    ```
@@ -62,13 +53,13 @@ game-content-generator/
 
 ### Training Models
 1. Train a lightweight model (for testing):
-   ```
+   ```bash
    cd models
    python train_small.py
    ```
 
 2. Train the full model (for better results):
-   ```
+   ```bash
    cd models
    python train.py
    ```

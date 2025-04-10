@@ -6,15 +6,26 @@ from datasets import Dataset
 import torch
 
 def main():
-    # Define model and parameters - ENHANCED FOR BETTER CAPABILITY
-    model_name = "gpt2"  #   gpt2 
-    output_dir = "models/dialogue_generator_full"  # Different output directory
-    batch_size = 4  # Increased batch size for better gradient estimates
-    num_epochs = 5  # More training epochs for better learning
-    learning_rate = 2e-5  # Slightly lower learning rate for better convergence
+    # Define model and parameters - REDUCED MEMORY FOOTPRINT
+    model_name = "gpt2"  # Use smaller model (124M parameters instead of 355M)
+    output_dir = "models/dialogue_generator_gpt2"  # Updated output directory
+    batch_size = 2  # Reduced batch size for lower memory usage
+    num_epochs = 8  # Can train longer with smaller model
+    learning_rate = 5e-5  # Default learning rate for GPT-2
     
-    # Set up device - avoid MPS issues by using CPU if needed
-    if torch.backends.mps.is_available():
+    # Add gradient accumulation to compensate for smaller batch size
+    gradient_accumulation_steps = 4
+    
+    # Reduce sequence length
+    max_seq_length = 256  # Reduced from 512
+    
+    # Remove quantization config - not needed for GPT-2 Medium
+    
+    # Set up device - prioritize NVIDIA GPU if available
+    if torch.cuda.is_available():
+        device = 'cuda'
+        print(f"Using CUDA device: {torch.cuda.get_device_name(0)}")
+    elif torch.backends.mps.is_available():
         try:
             # Test MPS with a small tensor operation
             x = torch.zeros(1).to('mps')
@@ -25,7 +36,7 @@ def main():
             print("MPS available but encountered issues, falling back to CPU")
     else:
         device = 'cpu'
-        print("MPS not available, using CPU")
+        print("No GPU available, using CPU")
     
     # Load the data
     print("Loading data...")
@@ -134,23 +145,26 @@ def main():
     train_dataset = Dataset.from_pandas(train_df)
     val_dataset = Dataset.from_pandas(val_df)
     
-    # Load tokenizer and model
+    # Load tokenizer and model (without quantization)
     print(f"Loading {model_name} model and tokenizer...")
     tokenizer = AutoTokenizer.from_pretrained(model_name)
-    model = AutoModelForCausalLM.from_pretrained(model_name).to(device)
+    model = AutoModelForCausalLM.from_pretrained(model_name)
+    
+    # Move model to device
+    model = model.to(device)
     
     # If the tokenizer doesn't have a pad token, set it
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
     
-    # Function to tokenize inputs for causal language modeling - increased context window
+    # Function to tokenize inputs with reduced context window
     def tokenize_function(examples):
-        # Tokenize the text with longer sequence length
+        # Tokenize the text with shorter sequence length to save memory
         outputs = tokenizer(
             examples["full_text"], 
             padding="max_length", 
             truncation=True, 
-            max_length=512,  # Increased from 256 for longer context
+            max_length=max_seq_length,  # Reduced from 512 for memory savings
             return_tensors=None  # Return Python lists instead of tensors
         )
         
@@ -173,25 +187,25 @@ def main():
         mlm=False  # We're doing causal language modeling, not masked language modeling
     )
     
-    # Set up training arguments with device specification - improved settings
+    # Set up training arguments with memory optimization
     training_args = TrainingArguments(
         output_dir=output_dir,
         num_train_epochs=num_epochs,
         per_device_train_batch_size=batch_size,
         per_device_eval_batch_size=batch_size,
-        warmup_steps=50,  # Increased from 10 for better training stability
-        weight_decay=0.05,  # Increased from 0.01 for better regularization
+        gradient_accumulation_steps=gradient_accumulation_steps,
+        warmup_steps=100,
+        weight_decay=0.01,
         logging_dir="./logs",
-        logging_steps=1,
-        # Remove evaluation_strategy, eval_steps, and load_best_model_at_end
-        # evaluation_strategy="steps",
-        # eval_steps=100,
-        save_steps=50,  # Save more frequently
-        save_total_limit=3,  # Keep only the 3 best checkpoints
+        logging_steps=10,
+        save_steps=100,
+        save_total_limit=2,  # Keep fewer checkpoints to save disk space
         learning_rate=learning_rate,
-        no_cuda=True if device == 'cpu' else False,  # Don't use CUDA if we're on CPU
-        fp16=False,  # Disable mixed precision to avoid MPS issues
-        # load_best_model_at_end=True
+        # Set memory optimizations
+        fp16=True,  # Use mixed precision training
+        gradient_checkpointing=True,  # Trade computation for memory
+        optim="adamw_torch",  # Use memory-efficient optimizer
+        report_to="none"  # Disable reporting to save memory
     )
     
     # Set up trainer with data collator

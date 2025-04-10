@@ -31,6 +31,7 @@ models/*/checkpoint-*/
 models/*/.ipynb_checkpoints/
 models/small_model_test/
 models/dialogue_generator_full/
+models/dialogue_generator_gpt2/
 .ipynb_checkpoints/
 
 # Logs and data
