@@ -52,13 +52,8 @@ This project uses a fine-tuned GPT-2 model to generate game dialogue for differe
    This will create structured CSV files in `data/processed/`
 
 ### Training Models
-1. Train a lightweight model (for testing):
-   ```bash
-   cd models
-   python train_small.py
-   ```
 
-2. Train the full model (for better results):
+1. Train the full model:
    ```bash
    cd models
    python train.py
