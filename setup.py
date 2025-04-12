@@ -3,8 +3,8 @@ from setuptools import setup, find_packages
 setup(
     name="game-content-generator",
     version="0.1.0",
-    author="Your Name",
-    author_email="your.email@example.com",
+    author="Shashwat Pandey",
+    author_email="shashwatp011@gmail.com",
     description="A project for generating game content using fine-tuned language models.",
     packages=find_packages(),
     install_requires=[
