@@ -2,6 +2,12 @@
 
 A fine-tuned language model for generating game dialogue in the style of Horizon Dawn.
 
+## Demo
+
+![Demo Video](assets/demo.gif)
+
+*Demo shows the dialogue generation process with different character and scene inputs*
+
 ## What This Project Does
 
 This project uses a fine-tuned GPT-2 model to generate game dialogue for different scenes and characters. It includes:
@@ -12,6 +18,26 @@ This project uses a fine-tuned GPT-2 model to generate game dialogue for differe
 4. A simple web interface for generating dialogue
 
 ## Project Structure
+
+```
+HorizonDawn-Dialogue-Generator/
+├── api/
+│   ├── main.py             # FastAPI application
+│   └── dialogue_routes.py  # API routes for dialogue generation
+├── data/
+│   ├── raw/                # Raw JSON dialogue files
+│   ├── processed/          # Processed CSV files
+│   └── process_data.py     # Data processing script
+├── models/
+│   ├── train.py            # Training script
+│   ├── dialogue_generator_small/  # Smaller model checkpoint
+│   └── dialogue_generator_full/   # Full model checkpoint
+├── web/
+│   ├── static/             # CSS, JS files
+│   └── templates/          # HTML templates
+├── requirements.txt        # Project dependencies
+└── run.py                  # Script to run the application
+```
 
 ## How to Run
 
@@ -58,6 +84,38 @@ This project uses a fine-tuned GPT-2 model to generate game dialogue for differe
    cd models
    python train.py
    ```
+
+### Running the Web API and Interface
+
+1. Start the FastAPI server:
+   ```bash
+   python run.py
+   ```
+   
+   Or run it directly with uvicorn:
+   ```bash
+   uvicorn api.main:app --reload
+   ```
+
+2. Access the web interface by opening your browser and navigating to:
+   ```
+   http://localhost:8000
+   ```
+
+3. Access the API documentation at:
+   ```
+   http://localhost:8000/docs
+   ```
+
+### Using the API Directly
+
+You can make POST requests to the API endpoint:
+
+```bash
+curl -X POST "http://localhost:8000/api/generate_dialogue" \
+     -H "Content-Type: application/json" \
+     -d '{"scene":"Forest Encounter", "character":"Aloy", "length":200}'
+```
 
 ### Generating Content
 1. Create a testing script (example):
