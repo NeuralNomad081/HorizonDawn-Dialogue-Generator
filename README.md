@@ -4,7 +4,7 @@ A fine-tuned language model for generating game dialogue in the style of Horizon
 
 ## Demo
 
-![Demo Video](assets/demo.gif)
+<img src="assets/demo.gif" width="100%" alt="Demo Video" />
 
 *Demo shows the dialogue generation process with different character and scene inputs*
 
