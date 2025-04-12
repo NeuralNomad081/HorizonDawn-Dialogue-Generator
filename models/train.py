@@ -19,7 +19,6 @@ def main():
     # Reduce sequence length
     max_seq_length = 256  # Reduced from 512
     
-    # Remove quantization config - not needed for GPT-2 Medium
     
     # Set up device - prioritize NVIDIA GPU if available
     if torch.cuda.is_available():
@@ -41,8 +40,7 @@ def main():
     # Load the data
     print("Loading data...")
     
-    # Update paths to match your directory structure
-    base_data_dir = "./data/processed"  # Updated path to point to data directory
+    base_data_dir = "./data/processed"  
     
     # First check if the formatted files exist
     if os.path.exists(f"{base_data_dir}/train_formatted.csv"):
