@@ -10,7 +10,7 @@ A fine-tuned language model for generating game dialogue in the style of Horizon
 
 ## What This Project Does
 
-This project uses a fine-tuned GPT-2 model to generate game dialogue for different scenes and characters. It includes:
+This project uses a fine-tuned GPT-2 small model (124M parameters) to generate game dialogue for different scenes and characters. It includes:
 
 1. Data processing for game dialogues
 2. Model fine-tuning on a dataset of game dialogues
